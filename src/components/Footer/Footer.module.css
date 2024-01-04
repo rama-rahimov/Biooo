@@ -1,0 +1,65 @@
+.footer {
+    padding-top: 80px;
+    width: 100%;
+    background-color: #285A43;
+}
+
+.footer h1{
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 40px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding-bottom: 40px;
+}
+
+.cardCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cardCont:hover {
+    background-color: firebrick;
+    border: none;
+}
+
+.navHeader {
+   display: flex;
+   padding-bottom: 20px;
+   justify-content: center;
+   gap: 30px;
+}
+
+.navHeader a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navHeader a:hover {
+    text-decoration: underline;
+    transition-duration: 0.5s;
+}
+
+.copy {
+text-align: center;
+width: 100%;
+padding: 10px 0;
+background-color: black;
+color: #fff;
+}
+
+.copy p {
+    margin:  0;
+}

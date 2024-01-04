@@ -1,0 +1,54 @@
+.link {
+text-decoration:none;
+width:140px ; 
+height:43px; background-color:#337A5B;
+border:none; color: white;
+display:flex; justify-content:center;
+flex-direction:column ; align-items:center ;
+border-radius:5px; margin-top:15px ;
+cursor: pointer ;
+}
+
+.vpeeered {
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: #337A5B;
+padding: 40px 0 10px;
+}
+
+.vpeeered h1 {
+    width: 70%;
+}
+
+.davay {
+    display: flex ;
+    align-items: flex-end;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.davay h5 {
+    margin: 0;
+}
+
+.veyenede {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.basketvpr {
+    position: absolute;
+    z-index: 5;
+    width: 300px;
+    height: 250px;
+    background-color: rgb(187, 155, 155);
+    margin-top: 34px;
+    right: -85px;
+    color: #bbb;
+    padding: 10px;
+}
+

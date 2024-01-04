@@ -1,0 +1,10 @@
+.cardss {
+    width: 50%;
+    height: 380px;
+    border: 2px solid #bbb;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.cardss div {
+    padding: 60px 0 0 50px;
+}

@@ -1,0 +1,71 @@
+.header {
+    margin-top: 30px;
+    padding-top: 40px;
+    background-color: rgb(90, 81, 84);
+    color: #fff;
+    width: 80%;
+    border-radius: 10px;
+    height: 90vh;
+}
+
+.vvodim {
+    width: 250px;
+    height: 36px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 10px;
+}
+
+.vvodimm {
+    width: 250px;
+    height: 36px;
+    border-radius: 5px;
+    border: none;
+}
+
+.podHeader {
+ display: flex;
+ justify-content: space-around;
+}
+
+.nameInp {
+    padding-top: 30px;
+}
+
+.bttt {
+    width: 100px;
+    height: 36px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(162, 130, 91);
+    color: #fff ;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 21vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.heading {
+    text-align: center;
+}
+
+.phone_input_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    margin-bottom: 10px;
+}
+
+.error_message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}

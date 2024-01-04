@@ -1,0 +1,31 @@
+.veyenede {
+    background: rgb(55, 203, 139);
+    width: 100%;
+    color: #fff;
+    height: 750px;
+}
+
+.davay {
+    display: flex ;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plus {
+margin: 0;
+}
+
+.minus {
+margin: 0;
+}
+
+.plus:hover{
+    cursor: pointer;
+    background-color: greenyellow;
+}
+
+.minus:hover{
+    cursor: pointer;
+    background-color: red;
+}

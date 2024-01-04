@@ -1,0 +1,43 @@
+.nature {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    background: url("../../assets//nature.svg") no-repeat center;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header p {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.inputNature {
+    width: 470px ;
+    height: 50px ; 
+    background: transparent ;
+    border: none;
+    border: 1px solid #fff ;
+    border-radius: 4px;
+    padding: 3px 15px;
+    color: #fff;
+}
+
+.btnNat {
+    width: 143px;
+    height: 48px;
+    background-color: #285A43;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    margin-left: 10px;
+}

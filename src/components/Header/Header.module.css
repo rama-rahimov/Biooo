@@ -1,0 +1,138 @@
+.imggggess {
+    background: no-repeat center url('../../assets/gggarden.jpg') ;
+}
+
+.navvv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.navbarWord {
+    color: black;
+    text-decoration: none;
+}
+
+.imgLush {
+    padding-left: 100px;
+}
+
+.unionA {
+    display: flex;
+    align-items: center;
+}
+
+.unionA a {
+    color: #fff;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.unionA button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    width: 120px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 6px;
+}
+
+.unionA button:hover {
+    background-color: #fff;
+    color: #000;
+    transition-duration: 0.5s;
+}
+
+.unionA a:hover {
+    color: #285A43;
+}
+
+.bases {
+    text-align: center;
+    color: #fff;
+}
+
+.bases h3 {
+    padding-bottom: 10px;
+}
+
+.twoBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.twoBtn button {
+    width: 160px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.twoBtn .bookNow {
+    background-color: #285A43;
+}
+
+.twoBtn .bookNow:hover{
+    background-color: brown;
+    border: none;
+    transition-duration: 0.5s;
+}
+
+.twoBtn .watchVideo {
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.twoBtn .watchVideo:hover {
+    background-color: darksalmon;
+    transition-duration: 0.5s;
+}
+
+.countr {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.countr .lenguege{
+    color: #fff;
+    padding: 0 10px;
+    margin: 0;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+.lenguageEvery {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lenguageEvery p {
+    margin: 0;
+    padding-left: 10px;
+    color: #fff;
+}
+
+.typoRegistr {
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid rgb(23, 113, 59);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #bbb;
+    gap: 10px;
+    background-color:  #092202 ;
+}
+
+.typoRegistr input {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}

@@ -1,0 +1,18 @@
+.inter {
+    padding: 100px 0;
+    width: 100%;
+}
+
+.interH1 {
+    color:  #285A43;
+    font-weight: bold;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.daavay {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
