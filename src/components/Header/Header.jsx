@@ -14,6 +14,7 @@ import openEye from '../../assets/open_eye.svg';
 import closeOpen from '../../assets/close_eye.svg';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
   const [arrow, setArrow] = useState(false);
   const [leng, setLeng] = useState("English");
@@ -107,10 +108,10 @@ const Header = () => {
   a wide variety of flowers that will bring a touch of nature to your home!
   </h3>
   <div className={s.twoBtn}>
-    <button className={s.bookNow}>Book Now</button>
-    <button className={s.watchVideo}>
-      <img style={{paddingRight: "5px"}} src={videoIMg} alt="imgVideo" />
-      Watch Video</button>
+  <button className={s.bookNow}>Book Now</button>
+  <button className={s.watchVideo}>
+  <img style={{paddingRight: "5px"}} src={videoIMg} alt="imgVideo" />
+  Watch Video</button>
   </div>
 </div> 
 </div>

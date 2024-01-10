@@ -14,7 +14,7 @@ const Product = () => {
   const [allCategories, setAllCategories] = useState([]);
   const [childrenProd, setChildrenProd] = useState([]);
   const [childrenCompareRoditel, setChildrenCompareRoditel] = useState(0);
-  const [dataHtml, setDataHtml] = useState("");
+  const [dataHtml] = useState("");
 
   const takeChildrenCategories = (childrenProduct, id) => {
     if(childrenProduct.length > 0){
@@ -26,7 +26,7 @@ const Product = () => {
   const basketWork = (id, name, price, img) => {
   axios.post(`http://localhost:3001/product/basket`, { id, name, price, img }, {
   headers:{
-  Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJpYXQiOjE3MDM0ODU5OTgsImV4cCI6MTcwMzc0NTE5OH0.W82C_ghkynhV1LxCpOwdhd_-voq9SBoAUieAoc_H4I4"
+  Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
   }
   })
   .then(ahaa =>{
@@ -38,17 +38,6 @@ const Product = () => {
   }
 
   useEffect( () => {
-  const text = async () => {
-  const takeHtml = await axios.get("http://localhost:3001/product/text");
-  console.log(takeHtml.data);
-  // setDataHtml(takeHtml.data);
-  setDataHtml(<>
-  <h1>hkjbjdcjk</h1>
-  <p>jdfbd</p>
-  <h1>kjbdsc</h1>
-  <p>onlkdsc</p>
-  </>)
-  }
   const fetchPost = async () => {
   setLoading(true);
   const res = await axios.get("http://localhost:3001/users/get_image");
@@ -62,7 +51,7 @@ const Product = () => {
   const hmm = async () => {
   const fj = await axios.get(`http://localhost:3001/product/get`, {
   headers:{
-  Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJpYXQiOjE3MDM0ODU5OTgsImV4cCI6MTcwMzc0NTE5OH0.W82C_ghkynhV1LxCpOwdhd_-voq9SBoAUieAoc_H4I4"
+  Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
   }
   });
   if(!fj.data){
@@ -73,7 +62,6 @@ const Product = () => {
   } = fj.data ;
   setNumBasket(currentCount);
   }
-  text();
   hmm();
   fetchPost();
   categor();
