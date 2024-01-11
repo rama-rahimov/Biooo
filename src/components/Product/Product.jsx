@@ -95,7 +95,7 @@ const Product = () => {
     <div style={{paddingLeft:"5px", background:"green"}}>
     {allCategories.map((el, index) => {
     return (
-    <div key={index} className="collapsible" onClick={() => {takeChildrenCategories(el.children, el.id)}}>
+    <div key={index} className="collapsible" onClick={() => { takeChildrenCategories(el.children, el.id) }}>
     <p style={{cursor:"pointer"}}>{el.name}</p>
     <div style={{marginLeft:"10px"}}>
     {childrenProd.length > 0 &&  childrenCompareRoditel === el.id &&

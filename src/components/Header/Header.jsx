@@ -21,17 +21,19 @@ const Header = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [eye, setEye] = useState(false);
-  const [select, setSelect] = useState("");
+  const [tokenContext, setTokenConext] = useState("");
 
   const login = () => {
   axios.post("http://localhost:3001/users/login", {email, password})
-  .then(ahaa => console.log(ahaa))
+  .then(ahaa => setTokenConext(ahaa.data))
   .catch(ahaa => console.log(ahaa));
   }
 
   const changeData = (e) => {
     setPassword(e.target.value);
   }
+
+  // localStorage.setItem("myCat", "Tom");
 
   return (
   <div  className="page_body page_body_light" style={{width:"100%", height:"100%"}} >
@@ -96,6 +98,7 @@ const Header = () => {
   style={{width:"30px", height:"30px", position:"absolute", right:"10px", top:"5px"}} 
   onClick={() => {setEye(!eye)}}/>
   </div>
+  <Link to="/home/:id" onClick={login}>Come on</Link>
   <button onClick={login}>Come on</button>
   <Link to="/registration">Registration</Link>
 </div>
