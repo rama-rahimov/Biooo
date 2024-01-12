@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import axios from 'axios';
 import basket from '../../assets/basket.svg';
 import { Link  } from 'react-router-dom';
 import s from './Product.module.css';
 import Pagination from '../Pagination';
+import { ThemeContext } from '../../index';
 
 const Product = () => {
   const [posts, setPosts] = useState([]);
@@ -14,7 +15,12 @@ const Product = () => {
   const [allCategories, setAllCategories] = useState([]);
   const [childrenProd, setChildrenProd] = useState([]);
   const [childrenCompareRoditel, setChildrenCompareRoditel] = useState(0);
+  const [ahaa, setAhaa] = useState();
   const [dataHtml] = useState("");
+
+
+  const { tokennnContext } = useContext(ThemeContext);
+  console.log(tokennnContext);
 
   const takeChildrenCategories = (childrenProduct, id) => {
     if(childrenProduct.length > 0){
@@ -26,7 +32,7 @@ const Product = () => {
   const basketWork = (id, name, price, img) => {
   axios.post(`http://localhost:3001/product/basket`, { id, name, price, img }, {
   headers:{
-  Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
+  Authorization:`${tokennnContext}`
   }
   })
   .then(ahaa =>{
@@ -36,7 +42,7 @@ const Product = () => {
   setNumBasket(numBasket + 1);
   });
   }
-
+  
   useEffect( () => {
   const fetchPost = async () => {
   setLoading(true);
@@ -49,9 +55,10 @@ const Product = () => {
   setAllCategories(rabotayemCategor.data.data);
   }
   const hmm = async () => {
+  console.log(tokennnContext);
   const fj = await axios.get(`http://localhost:3001/product/get`, {
   headers:{
-  Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
+  Authorization:`${tokennnContext}`
   }
   });
   if(!fj.data){

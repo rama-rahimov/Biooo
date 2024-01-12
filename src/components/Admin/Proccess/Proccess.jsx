@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import s from './Proccess.module.css';
+import { ThemeContext } from '../../../index';
 
 const Proccess = () => {
   const [file, setFile] = useState(null);
@@ -18,24 +19,9 @@ const Proccess = () => {
     pageNumbers.push(i);
   }
 
-  
-  useEffect(() => {
-    const fetchPost = async () => {
-    const res = await axios.get("http://localhost:3001/admin/get_image", {
-      headers:{
-        Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxMCwiaWF0IjoxNzAzMTU5NTc4LCJleHAiOjE3MDM0MTg3Nzh9.ZYmH8PbbXhBiTe2duXKuSZtFiMGiDVCQPcHzsBtNdC8"
-      }
-    });
-    setPosts(res.data.data);
-    console.log(res);
-    }
+  const { tokennnContext } = useContext(ThemeContext);
 
-    fetchPost();
-  }, []);
-
-  const indexOfLastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  console.log(tokennnContext);
 
   const upload = () => {
     if(!file){
@@ -49,13 +35,30 @@ const Proccess = () => {
     console.log(formData);
     axios.post("http://localhost:3001/admin/upload", formData,  {
       headers:{
-        Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxMCwiaWF0IjoxNzAzMTU5NTc4LCJleHAiOjE3MDM0MTg3Nzh9.ZYmH8PbbXhBiTe2duXKuSZtFiMGiDVCQPcHzsBtNdC8"
+        Authorization:`${tokennnContext}`
       }
     })
     .then(ahaa => ahaa)
     .catch(err => console.log(err));
   }
 
+  useEffect(() => {
+    const fetchPost = async () => {
+    const res = await axios.get("http://localhost:3001/admin/get_image", {
+      headers:{
+        Authorization:`${tokennnContext}`
+      }
+    });
+    setPosts(res.data.data);
+    console.log(res);
+    }
+
+    fetchPost();
+  }, []);
+
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <div style={{paddingBottom:"100px"}}>
     {console.log(posts)}
@@ -104,9 +107,8 @@ const Proccess = () => {
     display: "flex", 
     justifyContent: "center" , 
     flexWrap: "wrap" }}>
-      
     { posts === null ? "" :
-      currentPosts.map((data) => {
+      currentPosts.map((data, index) => {
         return <div style={{ margin:"20px", padding:"20px", width:"350px", height:"350px",
         backgroundColor:"#bbb",  borderRadius: "10px" }} > 
         <img

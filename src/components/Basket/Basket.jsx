@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import s from './Basket.module.css';
 import del from '../../assets/eraser-solid.svg';
 import plus from '../../assets/plus-solid.svg';
 import minus from '../../assets/minus-solid.svg';
 import axios from 'axios';
+import { ThemeContext } from '../../index';
 
 const Basket = () => {
 const [xmarkaNum, setXmarkaNum] = useState(0);
 const [allArr, setAllArr] =  useState([]);
 const [productCount, setProductCount] = useState(0);
 
+const { tokennnContext } = useContext(ThemeContext);
+
+console.log(tokennnContext);
+
 
 const plusFunc = async (product_id, count) => {
 const plusProduct = await axios.get(`http://localhost:3001/product/update_count/${product_id}/${count}/${1}`, {
 headers:{
-Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
+Authorization:`${tokennnContext}`
 }
 });
 console.log(plusProduct.data + productCount);
@@ -24,7 +29,7 @@ setProductCount(plusProduct.data + productCount);
 const minusProductFunc = async (product_id, count) => {
 const minusProduct = await axios.get(`http://localhost:3001/product/update_count/${product_id}/${count}/${0}`, {
 headers:{
-Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
+Authorization:`${tokennnContext}`
 }
 });
 console.log(minusProduct.data + productCount);
@@ -34,16 +39,17 @@ setProductCount(minusProduct.data + productCount);
 async function udallyayYeqo  (product_id) {
 const deleteProduct =  await axios.get(`http://localhost:3001/product/delte_product/${product_id}`, {
 headers:{
-Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
+Authorization:`${tokennnContext}`
 }
 })
 setXmarkaNum(deleteProduct.data.affectedRows);
 }
+
 useEffect(() => {
 const hmm = async () => {
 const fj = await axios.get(`http://localhost:3001/product/inbasket`, {
 headers:{
-Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZUlkIjoxLCJpYXQiOjE3MDQ4Njk4MzgsImV4cCI6MTcwNTEyOTAzOH0.bG8Ws6FBD6drD6rpxWt4uIVzrxDBVHANptEdcmAq5z0"
+Authorization:`${tokennnContext}`
 }
 });
 if(!fj.data){

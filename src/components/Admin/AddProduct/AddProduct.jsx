@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import s from './AddProduct.module.css';
 import axios from 'axios';
+import { ThemeContext } from '../../../index';
+
 
 const AddProduct = () => {
   const hostUrl = 'http://localhost:3001/admin/upload' ;
@@ -8,6 +10,10 @@ const AddProduct = () => {
   const filePicker = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploaded, setUploaded] = useState(null);
+
+  const { tokennnContext } = useContext(ThemeContext);
+
+  console.log(tokennnContext);
 
   const handleChange = (event) => {
   setSelectedFile(event.target.files[0]);
@@ -21,7 +27,7 @@ const AddProduct = () => {
   console.log(formData);
   await axios.post(hostUrl, { formData }, {
     headers:{
-      Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxMCwiaWF0IjoxNzAzMTU5NTc4LCJleHAiOjE3MDM0MTg3Nzh9.ZYmH8PbbXhBiTe2duXKuSZtFiMGiDVCQPcHzsBtNdC8"
+      Authorization:`${tokennnContext}`
     }
   }, (err, result) => {
   if(err){

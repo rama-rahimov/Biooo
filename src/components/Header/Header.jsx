@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../../index';
 import 'react-bootstrap';
 import axios from 'axios';
 import s from './Header.module.css' ;
@@ -21,20 +22,24 @@ const Header = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [eye, setEye] = useState(false);
-  const [tokenContext, setTokenConext] = useState("");
-
-  const login = () => {
-  axios.post("http://localhost:3001/users/login", {email, password})
-  .then(ahaa => setTokenConext(ahaa.data))
-  .catch(ahaa => console.log(ahaa));
-  }
 
   const changeData = (e) => {
     setPassword(e.target.value);
+    }
+
+  const login = () => {
+  axios.post("http://localhost:3001/users/login", {email, password})
+  .then(ahaa => {
+  if((ahaa.data || "").length > 0){
+  localStorage.setItem("myCat", ahaa.data);
+  } else {
+  localStorage.removeItem("myCat");
   }
-
-  // localStorage.setItem("myCat", "Tom");
-
+  })
+  .catch(() => {
+  localStorage.removeItem("myCat");
+  });
+  }
   return (
   <div  className="page_body page_body_light" style={{width:"100%", height:"100%"}} >
   <div style={{width:"100%", height:"760px"}} className={s.imggggess}>

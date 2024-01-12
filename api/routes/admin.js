@@ -21,11 +21,16 @@ const upload = multer({ storage });
 
 router.post('/upload', authenticate , upload.single('file'), async (req, res) => {
   console.log(req.file);
+  console.log(req.currrentUser);
   const imageeName = req.file.filename;
   const { addPrice, nameProduct } = req.body;
   const product = {price:addPrice, name:nameProduct, imgUrl: imageeName};
  let addProduct = {} ;
   try {
+    const { roleId } = req.currrentUser ;
+    if(roleId === 1){
+    return  res.json({error: true, Message: "You're not an admin"});
+    }
 
     let question = '' ;
     console.log(addPrice);
@@ -68,12 +73,16 @@ router.post('/upload', authenticate , upload.single('file'), async (req, res) =>
 
 router.get('/get_image', authenticate , async (req, res) => {
   try {
+    const { roleId } = req.currrentUser ;
+    if(roleId === 1){
+    return  res.json({error: true, Message: "You're not an admin"});
+    }
     conn.query(`SELECT * from growth LIMIT 40`, (err, result) => {
       if (err) {
         console.log(err.message);
         res.json({ status: err.message });
       }
-      res.json({ status: 'ok', data: result });
+      res.json({ status: 'ok', data: result, toqdaa: req.currrentUser });
     });
   } catch (error) {
     res.json({ status: error });
